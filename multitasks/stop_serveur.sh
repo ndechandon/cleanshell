@@ -1,1 +1,0 @@
-echo "serveur is stoping"
