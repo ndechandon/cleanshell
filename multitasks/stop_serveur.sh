@@ -1,1 +1,1 @@
-echo "serveur is stoping"
+echo "server is stopping"
