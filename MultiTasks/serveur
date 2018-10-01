@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+function main() {
+    local cmd="$1"
+    if is_command "$cmd"; then
+        shift
+        "$cmd" "$@"
+    else
+        echo "Invalid command $cmd"
+        usage
+    fi
+}
+
+function is_command() {
+    if [[ "$(type -t $1)" == 'function' ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function usage() {
+    echo "Commands list :"
+    echo "  status : give the state of server"
+    echo "  start : start the server"
+    echo "  stop: stop the server"
+    echo "  restart"
+    echo "  stopForce"
+}
+
+function status() {
+    echo "serveur is well"
+}
+function stop(){
+    echo "server is stopping"
+}
+function stopForce(){
+    echo "server is forceStopping"
+}
+function start(){
+    echo "server is starting"
+}
+
+main "$@"
