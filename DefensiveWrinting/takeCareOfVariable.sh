@@ -28,4 +28,9 @@ function who(){
   printf "me"
 }
 
+function tips(){
+    PROJECT_FULL_NAME="$(gcloud config get-value core/project)"
+    dataflowID=$(gcloud --format=json beta dataflow jobs list --status=active | jq -c '.id' )
+}
+
 main "$@"
